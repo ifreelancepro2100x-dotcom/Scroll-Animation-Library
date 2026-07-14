@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collagen-Stimulating Skin Rejuvenation | Strella Medical Aesthetics</title>
+    <!-- Scroll Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        /* Design Variables & Theme */
+        :root {
+            --primary: #0a4234; /* Deep Medical-Spa Forest Green */
+            --primary-light: #155e4c;
+            --accent: #bfa37a; /* Elegant Gold/Champagne Accent */
+            --text-dark: #2d3748;
+            --text-light: #5a6270;
+            --bg-light: #f8faf8;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.7;
+        }
+
+        /* Utilities */
+        .container {
+            width: 88%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 5.5rem 0;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.95rem 2.2rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--white);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-light);
+            border-color: var(--primary-light);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(10, 66, 52, 0.25);
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: var(--accent);
+            margin: 0.75rem auto 0;
+        }
+
+        /* Sticky Navigation */
+        header {
+            background-color: var(--white);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.03);
+        }
+
+        .nav-container {
+            width: 88%;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.25rem 0;
+        }
+
+        .logo {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            letter-spacing: 1.5px;
+        }
+
+        .logo span {
+            color: var(--accent);
+            font-weight: 400;
+        }
+
+        nav a {
+            margin-left: 2rem;
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(10, 66, 52, 0.88), rgba(10, 66, 52, 0.88)), url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=1920') center/cover no-repeat;
+            color: var(--white);
+            padding: 9rem 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.2rem;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto 2.5rem;
+            opacity: 0.9;
+        }
+
+        /* Keyphrase / Introduction Section */
+        .intro-section {
+            background-color: var(--white);
+            text-align: center;
+        }
+
+        .intro-text {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 1.15rem;
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+
+        /* Custom Anchor Link Design */
+        .intro-text a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 700;
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 1px;
+            transition: all 0.3s ease;
+        }
+
+        .intro-text a:hover {
+            color: var(--accent);
+            background-color: rgba(191, 163, 122, 0.08);
+            border-bottom-color: var(--primary);
+        }
+
+        /* Multi-Column Benefits Section */
+        .benefits-section {
+            background-color: var(--bg-light);
+        }
+
+        .grid-three-col {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3.5rem;
+        }
+
+        .benefit-card {
+            background: var(--white);
+            padding: 2.5rem 2rem;
+            border-radius: 6px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+            border-top: 4px solid var(--accent);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+        }
+
+        .benefit-card h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
+        }
+
+        /* Mid-Page Interactive Split Details */
+        .split-section {
+            background-color: var(--white);
+        }
+
+        .split-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4.5rem;
+            align-items: center;
+        }
+
+        .split-img {
+            width: 100%;
+            height: 480px;
+            background: url('https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&q=80&w=800') center/cover no-repeat;
+            border-radius: 8px;
+            box-shadow: 0 12px 35px rgba(0,0,0,0.06);
+        }
+
+        .treatable-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-top: 1.5rem;
+        }
+
+        .tag {
+            background-color: var(--bg-light);
+            border: 1px solid #e2e8f0;
+            color: var(--primary);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        /* Accordion / Info Box Section */
+        .details-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2.5rem;
+            margin-top: 3.5rem;
+        }
+
+        .details-box {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.015);
+        }
+
+        .details-box h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.35rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .details-box h3::before {
+            content: '✦';
+            color: var(--accent);
+        }
+
+        .details-box ul {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .details-box ul li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.75rem;
+            color: var(--text-light);
+        }
+
+        .details-box ul li::before {
+            content: '•';
+            color: var(--accent);
+            font-weight: bold;
+            font-size: 1.5rem;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            background-color: var(--bg-light);
+        }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 3.5rem;
+        }
+
+        .faq-item {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.01);
+        }
+
+        .faq-item h4 {
+            color: var(--primary);
+            font-size: 1.1rem;
+            margin-bottom: 0.75rem;
+        }
+
+        /* Footer Call to Action */
+        .cta-footer {
+            background-color: var(--primary);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .cta-footer h2 {
+            font-size: 2.6rem;
+            margin-bottom: 1.2rem;
+            font-weight: 700;
+        }
+
+        .cta-footer p {
+            max-width: 650px;
+            margin: 0 auto 2.5rem;
+            opacity: 0.9;
+            font-size: 1.1rem;
+        }
+
+        /* Responsive Layout Improvements */
+        @media (max-width: 992px) {
+            .split-container, .details-grid, .grid-three-col, .faq-grid {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+            .split-img {
+                height: 320px;
+                order: -1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 1.2rem;
+            }
+            nav a {
+                margin: 0 0.8rem;
+            }
+            .hero h1 {
+                font-size: 2.25rem;
+            }
+            .container {
+                padding: 4rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sticky Header Navigation -->
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo">STRELLA <span>MEDICAL AESTHETICS</span></a>
+            <nav>
+                <a href="#about">About Rejuvenation</a>
+                <a href="#areas">Treatable Areas</a>
+                <a href="#benefits">Benefits</a>
+                <a href="#faq">FAQ</a>
+                <a href="#appointment">Consultation</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Master Hero Banner -->
+    <section class="hero">
+        <div class="container" style="padding: 0;">
+            <h1 data-aos="zoom-out-up">Restore Firmer, Healthier Skin</h1>
+            <p data-aos="fade-up" data-aos-delay="100">Advanced Collagen-Stimulating Skin Rejuvenation in Pennsylvania</p>
+            <a href="#appointment" class="btn btn-primary" data-aos="fade-up" data-aos-delay="250">Schedule a Consultation</a>
+        </div>
+    </section>
+
+    <!-- Anchored Keyphrase & Intro Section -->
+    <section id="about" class="intro-section">
+        <div class="container" data-aos="fade-up">
+            <h2 class="section-title">Turn Back the Clock, Naturally</h2>
+            <p class="intro-text">
+                As we age, our skin naturally produces less collagen and elastin—the essential proteins responsible for keeping skin firm, smooth, and youthful. Combined with sun exposure, weight fluctuations, and environmental stressors, this gradual collagen loss can lead to loose skin, fine lines, wrinkles, and reduced elasticity. At Strella Medical Aesthetics, we offer advanced <a href="https://strellapa.com/skin-tightening">collagen-stimulating skin rejuvenation</a> treatments designed to tighten, lift, and refresh your skin without surgery.
+            </p>
+        </div>
+    </section>
+
+    <!-- Split Visual: Action & Treatment Compatibility -->
+    <section id="areas" class="split-section">
+        <div class="container">
+            <div class="split-container">
+                <div data-aos="fade-right">
+                    <h2 class="section-title" style="text-align: left;">Versatile Areas We Treat</h2>
+                    <p style="color: var(--text-light); margin-bottom: 1rem;">
+                        One of the major advantages of non-surgical skin tightening is its versatility. Our innovative technologies can be performed on multiple areas of the body where collagen loss has reduced skin firmness.
+                    </p>
+                    <p style="color: var(--text-light); font-weight: 600; margin-top: 1.5rem;">Common Treatment Zones:</p>
+                    <div class="treatable-tags">
+                        <span class="tag">Face & Cheeks</span>
+                        <span class="tag">Jawline & Jowls</span>
+                        <span class="tag">Neck & Forehead</span>
+                        <span class="tag">Around the Eyes</span>
+                        <span class="tag">Abdomen</span>
+                        <span class="tag">Upper Arms & Thighs</span>
+                    </div>
+                </div>
+                <div class="split-img" data-aos="fade-left"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Value Grid -->
+    <section id="benefits" class="benefits-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Why Choose Non-Surgical Tightening?</h2>
+            
+            <div class="grid-three-col">
+                <div class="benefit-card" data-aos="fade-up" data-aos-delay="100">
+                    <h3>Natural Improvements</h3>
+                    <p style="color: var(--text-light); font-size: 0.95rem;">By supporting your body's own regenerative processes, improvements develop gradually without an artificial, overdone appearance.</p>
+                </div>
+                <div class="benefit-card" data-aos="fade-up" data-aos-delay="200">
+                    <h3>No Surgery or Incisions</h3>
+                    <p style="color: var(--text-light); font-size: 0.95rem;">Skip the risks and scars associated with traditional face lifts. Our therapies protect the outer skin layer completely.</p>
+                </div>
+                <div class="benefit-card" data-aos="fade-up" data-aos-delay="300">
+                    <h3>Zero Active Downtime</h3>
+                    <p style="color: var(--text-light); font-size: 0.95rem;">Designed with busy lifestyles in mind, treatments allow you to immediately return to work and daily activities.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Appointment Expectations & Aftercare -->
+    <section class="expectations-section" style="background-color: var(--white);">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">What to Expect & Timeline</h2>
+            
+            <div class="details-grid">
+                <div class="details-box" data-aos="fade-right">
+                    <h3>During Your Appointment</h3>
+                    <p style="color: var(--text-light);">We prioritize your comfort and peace of mind. Standard appointments last between 30 and 60 minutes and consist of:</p>
+                    <ul>
+                        <li>A thorough clinical evaluation of your treatment zone</li>
+                        <li>Precise delivery of controlled thermal energy</li>
+                        <li>A comfortable, gentle warming sensation</li>
+                        <li>Post-treatment cool-down protocol</li>
+                    </ul>
+                </div>
+                
+                <div class="details-box" data-aos="fade-left">
+                    <h3>Gradual, Progressive Results</h3>
+                    <p style="color: var(--text-light);">Because this treatment works by prompting natural collagen synthesis, results improve beautifully over time:</p>
+                    <ul>
+                        <li>Subtle tightening may be noticed immediately</li>
+                        <li>Early improvements typically show within several weeks</li>
+                        <li>Peak tightening develops over two to three months</li>
+                        <li>Periodic maintenance sessions can preserve long-term elasticity</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Frequently Asked Questions</h2>
+            <div class="faq-grid">
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="100">
+                    <h4>Is skin tightening painful?</h4>
+                    <p style="color: var(--text-light); font-size: 0.95rem;">Most patients describe the treatment as highly comfortable, experiencing only a mild warming sensation during the procedure.</p>
+                </div>
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="200">
+                    <h4>How many treatments will I need?</h4>
+                    <p style="color: var(--text-light); font-size: 0.95rem;">The number of sessions depends entirely on your target skin condition, location, and desired outcome. We design a custom plan during your consultation.</p>
+                </div>
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="300">
+                    <h4>Is there any downtime?</h4>
+                    <p style="color: var(--text-light); font-size: 0.95rem;">Most collagen-stimulating skin rejuvenation treatments require little to no downtime, allowing you to return to normal activities right after.</p>
+                </div>
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="400">
+                    <h4>Who is a good candidate for skin tightening?</h4>
+                    <p style="color: var(--text-light); font-size: 0.95rem;">Adults experiencing mild to moderate skin laxity, reduced elasticity, or early signs of physical aging are excellent candidates.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Lead Capture Section -->
+    <section id="appointment" class="cta-footer">
+        <div class="container" data-aos="fade-up">
+            <h2>Schedule Your Skin Tightening Consultation</h2>
+            <p>Proudly serving patients throughout Montgomery County with convenient locations in Lower Gwynedd and Trooper, PA. Start your journey with Strella Medical Aesthetics today under the trusted medical leadership of Dr. Benjamin Lam.</p>
+            <a href="https://strellapa.com/skin-tightening" class="btn btn-primary" style="background-color: var(--accent); border-color: var(--accent); color: var(--primary);">Schedule a Consultation</a>
+        </div>
+    </section>
+
+    <!-- Initialization of Scroll Animations -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 120
+        });
+    </script>
+</body>
+</html>
+
